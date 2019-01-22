@@ -1,15 +1,14 @@
 <template>
     <div>
-        <h1>{{ msg }}</h1>
+        <h1>{{ $t('helloWord') }}</h1>
+        <el-button type="plain">Options</el-button>
     </div>
 </template>
 
 <script>
 export default {
     data() {
-        return {
-            msg: 'Welcome!'
-        }
+        return { }
     }
 }
 </script>

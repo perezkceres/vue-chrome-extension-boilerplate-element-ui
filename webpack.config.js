@@ -37,34 +37,54 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'scss-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
         options: {
           name: '[name].[ext]?[hash]',
-        },
+        }
       },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+        }
+      }
+      // {
+      //   test: /\.(png|jpg|gif|svg)$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: '[name].[ext]?[hash]',
+      //   },
+      // },
     ],
   },
   resolve: {
-    root: path.resolve(__dirname, './src'),
     alias: {
       vue$: 'vue/dist/vue.runtime.esm.js',
-      '@api': './src',
-      '@assets': './assets',
-      '@components': './components',
-      '@directive': './directive',
-      '@filters': './filters',
-      '@lang': './lang',
-      '@store': './store',
-      '@utils': './utils',
-      '@views': './views',
+      '@api': path.resolve(__dirname, './src/api'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@directive': path.resolve(__dirname, './src/directive'),
+      '@filters': path.resolve(__dirname, './src/filters'),
+      '@lang': path.resolve(__dirname, './src/lang'),
+      '@store': path.resolve(__dirname, './src/store'),
+      '@utils': path.resolve(__dirname, './src/utils'),
+      '@views': path.resolve(__dirname, './src/views'),
     },
     extensions: ['.js'],
   },
