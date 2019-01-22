@@ -10,10 +10,10 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
-    options: './options/index.js',
-    popup: './popup/index.js',
-    background: './background/index.js',
-    'contentScripts/index': './contentScripts/index.js',
+    options: './views/options/index.js',
+    popup: './views/popup/index.js',
+    background: './views/background/index.js',
+    'contentScripts/index': './views/contentScripts/index.js',
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -36,6 +36,10 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'stylus-loader'],
       },
       {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'scss-loader'],
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
@@ -49,9 +53,18 @@ module.exports = {
     ],
   },
   resolve: {
+    root: path.resolve(__dirname, './src'),
     alias: {
       vue$: 'vue/dist/vue.runtime.esm.js',
-      bulma$: 'bulma/css/bulma.css',
+      '@api': './src',
+      '@assets': './assets',
+      '@components': './components',
+      '@directive': './directive',
+      '@filters': './filters',
+      '@lang': './lang',
+      '@store': './store',
+      '@utils': './utils',
+      '@views': './views',
     },
     extensions: ['.js'],
   },
