@@ -1,8 +1,8 @@
 {
-  "name": "vue-chrome-extension-boilerplate",
+  "name": "Vue boilerplate Element UI",
   "version": "1.0.0",
   "manifest_version": 2,
-  "description": "vue-chrome-extension-boilerplate",
+  "description": "vue-chrome-extension-boilerplate-element-ui",
   "icons": {
     "16": "assets/icons/icon_16.png",
     "32": "assets/icons/icon_32.png",
